@@ -15,10 +15,12 @@ export default function withTitle(WrappedComponent) {
       const { location } = this.props;
       const { pathname } = location;
       const pageTitle = getPageTitle(pathname);
+      const title = pageTitle.join(' - ');
+
       return (
         <Fragment>
           <Helmet>
-            <title>{pageTitle}</title>
+            <title>{title}</title>
           </Helmet>
           <WrappedComponent {...this.props}/>
         </Fragment>
